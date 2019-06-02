@@ -6,7 +6,7 @@ session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from flask.db import get_db
+from flaskr.db import get_db
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -41,9 +41,9 @@ def register():
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
-    if request.metho == 'POST':
-        username = request['username']
-        password = request['password']
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
         db = get_db()
         error = None
         user = db.execute(
