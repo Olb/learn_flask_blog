@@ -1,1 +1,1 @@
-# learn_flask_blog
+# Follows Flask's Flaskr project
